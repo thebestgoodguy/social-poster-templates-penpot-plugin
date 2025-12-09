@@ -2,6 +2,10 @@
 
 Create social media boards in Penpot with a single click. Pick a platform, select a template, and the plugin adds a board with the correct dimensions to your canvas.
 
+## Quick Install
+
+- Manifest URL (Netlify): `https://<site-name>.netlify.app/manifest.json`
+- Penpot → Plugins → Add plugin from URL → paste the manifest URL and confirm.
 ## Features
 
 - Platform filter with a sticky selector that stays visible while scrolling
@@ -31,14 +35,15 @@ This generates a `dist/` folder containing `manifest.json`, `plugin.js`, and ass
 
 ### Install in Penpot
 
-Option A — CDN (Önerilen):
+Option A — Netlify (Önerilen):
 
-1. Penpot → Plugins → Add plugin from URL
-2. Manifest URL:
+1. Netlify’de repo’yu bağlayın.
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+4. CORS: `public/_headers` dosyası Netlify tarafından uygulanır.
+5. Penpot → Plugins → Add plugin from URL → Manifest URL:
 
-   `https://cdn.jsdelivr.net/gh/thebestgoodguy/social-poster-templates-penpot-plugin@main/dist/manifest.json`
-
-3. Onaylayın ve eklentiyi açın.
+   `https://<site-name>.netlify.app/manifest.json`
 
 Option B — GitHub Pages:
 
