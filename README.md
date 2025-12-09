@@ -31,10 +31,15 @@ This generates a `dist/` folder containing `manifest.json`, `plugin.js`, and ass
 
 ### Install in Penpot
 
-1. Host the `dist/` directory with any static server (local or remote).
-2. In Penpot, go to Plugins → Add plugin from URL.
-3. Enter the URL to `manifest.json` (for example: `https://your-host/manifest.json`).
+1. In Penpot, go to Plugins → Add plugin from URL.
+2. Paste this manifest URL:
+
+   `https://thebestgoodguy.github.io/social-poster-templates-penpot-plugin/manifest.json`
+
+3. Confirm to install. The plugin loads `plugin.js` and assets from the same base URL.
 4. Open the plugin in your Penpot document.
+
+If you fork or rename the repo, replace `thebestgoodguy` and the repo name in the URL.
 
 ## Usage
 
