@@ -5,7 +5,12 @@ type CreateTemplateMessage = {
     payload: { width: number; height: number; name: string };
 };
 
-type PluginMessage = CreateTemplateMessage | { type: string; payload?: unknown };
+function isCreateTemplateMessage(msg: unknown): msg is CreateTemplateMessage {
+    const m = msg as { type?: unknown; payload?: unknown };
+    if (m?.type !== "create-template") return false;
+    const p = m.payload as { width?: unknown; height?: unknown; name?: unknown };
+    return typeof p?.width === "number" && typeof p?.height === "number" && typeof p?.name === "string";
+}
 
 penpot.ui.open("Social Posts Templates", "", {
     width: 320,
@@ -13,9 +18,8 @@ penpot.ui.open("Social Posts Templates", "", {
 });
 
 penpot.ui.onMessage((message: unknown) => {
-    const msg = message as PluginMessage;
-    if (msg.type === "create-template") {
-        const { width, height, name } = msg.payload;
+    if (isCreateTemplateMessage(message)) {
+        const { width, height, name } = message.payload;
 
         const board = penpot.createBoard();
         board.name = name;
