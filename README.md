@@ -4,7 +4,7 @@ Create social media boards in Penpot with a single click. Pick a platform, selec
 
 ## Quick Install
 
-- Manifest URL (Netlify): `https://<site-name>.netlify.app/manifest.json`
+- Manifest URL (Netlify): `https://thunderous-frangollo-624521.netlify.app/manifest.json`
 - Penpot → Plugins → Add plugin from URL → paste the manifest URL and confirm.
 ## Features
 
