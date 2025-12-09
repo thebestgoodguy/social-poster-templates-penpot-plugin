@@ -1,0 +1,10 @@
+{
+  "name": "Social Posts Templates",
+  "description": "Create social media templates (Instagram, Facebook, etc.) on the canvas.",
+  "code": "plugin.js",
+  "icon": "icon.png",
+  "permissions": [
+    "content:read",
+    "content:write"
+  ]
+}
