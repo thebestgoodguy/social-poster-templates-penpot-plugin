@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "license": "MIT",
+  "author": "Sadri ERCAN",
   "scripts": {
     "dev": "concurrently \"npm run watch\" \"npm run preview\"",
     "watch": "vite build --watch",
