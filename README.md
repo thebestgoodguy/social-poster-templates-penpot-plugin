@@ -51,6 +51,19 @@ Option B — GitHub Pages:
 
 Not: Fork veya yeniden adlandırma yaparsanız, kullanıcı adı ve repo adını URL’de güncelleyin.
 
+Option C — User Site (Kök Yol):
+
+Bazı istemciler, manifest içindeki yolları host köküne bağladığından `.../plugin.js` ve `.../icon.png` dosyaları host kökünde beklenir. Bunu sağlamak için kullanıcı sitesi kullanın:
+
+1. GitHub’da `thebestgoodguy/thebestgoodguy.github.io` reposunu oluşturun ve Pages’ı aktif edin.
+2. Bu repoya yayınlamak için bu depoda `USER_SITE_PAT` isimli bir PAT secret tanımlayın (repo write yetkili).
+3. Actions → “Publish to User Site Root” iş akışını çalıştırın veya `main`’e push yapın.
+4. Penpot’a eklerken manifest URL olarak şunu kullanın:
+
+   `https://thebestgoodguy.github.io/manifest.json`
+
+Bu yöntemle `https://thebestgoodguy.github.io/plugin.js` ve `https://thebestgoodguy.github.io/icon.png` kökte bulunur ve istemci yanlış birleştirse bile dosyalar yüklenir.
+
 ## Usage
 
 - Open “Social Posts Templates”.

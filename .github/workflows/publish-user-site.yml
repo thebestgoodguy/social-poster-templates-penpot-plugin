@@ -1,0 +1,34 @@
+name: Publish to User Site Root
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Push dist assets to thebestgoodguy.github.io
+        env:
+          GH_PAT: ${{ secrets.USER_SITE_PAT }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf user-site
+          git clone https://x-access-token:${GH_PAT}@github.com/thebestgoodguy/thebestgoodguy.github.io.git user-site
+          cp -f dist/manifest.json user-site/manifest.json
+          cp -f dist/plugin.js user-site/plugin.js
+          cp -f dist/icon.png user-site/icon.png
+          cd user-site
+          git add manifest.json plugin.js icon.png
+          git commit -m "Publish plugin assets to root" || echo "No changes"
+          git push
