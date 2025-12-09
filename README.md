@@ -81,4 +81,6 @@ The plugin requests `content:read` and `content:write` (see `public/manifest.jso
 
 ## License
 
-Add your preferred license here.
+MIT License — see `LICENSE` for full text.
+
+You can use, modify, and distribute the plugin with attribution. The software is provided without warranty.
